@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>happy birthday</title>
+    <link href="reset.css" rel="stylesheet">
+    <link href="styleb.css" rel="stylesheet">
+</head>
+<body>
+    <div class="lil"></div>
+    <div class="modal-overlay" id="errorModal">
+        <div class="modal-window">
+            <img src="IMG_20260819_151338_612.jpg" alt="Ошибка" class="modal-image">
+            <button class="close-modal" onclick="closeModal()">Закрыть</button>
+        </div>
+    </div>
+    <div class="mainWrap">
+        <div class="prim">
+            <div class="p">
+                <div class="pwr">
+                    <p>На этой странице есть стикер <!--73--></p>
+                    <input type="text" size="10" placeholder=' ответ сюда' id="input1">
+                    <button onclick="func1()">проверить</button>
+                </div>
+            </div>
+            <div class="p">
+                <div class="pwr">
+                    <p>Прощальный поцелуй Олега и Васьки <!--21--></p>
+                    <input type="text" size="10" placeholder=' ответ сюда' id="input2">
+                    <button onclick="func2()">проверить</button>
+                </div>
+            </div>
+            <div class="p">
+                <div class="pwr">
+                    <p>Страница с самым больщим количеством поцелуев <!--3--></p>
+                    <input type="text" size="10" placeholder=' ответ сюда' id="input3">
+                    <button onclick="func3()">проверить</button>
+                </div>
+            </div>  
+            <div class="p">
+                <div class="pwr">
+                    <p>4 + 4 <!--66--></p>
+                    <input type="text" size="10" placeholder=' ответ сюда' id="input4">
+                    <button onclick="func4()">проверить</button>
+                </div>
+            </div>    
+            <div class="p">
+                <div class="pwr">
+                    <p>Кому <!--4--></p>
+                    <input type="text" size="10" placeholder=' ответ сюда' id="input5">
+                    <button onclick="func5()">проверить</button>
+                </div>
+            </div> 
+        </div>
+    </div>
+
+    <script>
+        'use strict'
+        const input1 = document.getElementById('input1');
+    const input2 = document.getElementById('input2');
+    const input3 = document.getElementById('input3');
+    const errorModal = document.getElementById('errorModal');
+
+    let isCorrect1 = false;
+    let isCorrect2 = false;
+    let isCorrect3 = false;
+    let isCorrect4 = false;
+    let isCorrect5 = false;
+
+        function showErrorModal() {
+      errorModal.style.display= 'flex';
+    }
+
+    function closeModal() {
+      errorModal.style.display = 'none';
+    }
+
+    function locate() {
+        if (isCorrect1 && isCorrect2 && isCorrect3 && isCorrect4 && isCorrect5) {
+        window.location.href = 'https://2gis.ru/omsk';}
+    }
+
+    function func1() {
+      const val = input1.value.trim();
+      if (val === '73') {
+        input1.classList.add('correct');
+        input1.classList.remove('wrong');
+        isCorrect1 = true;
+        closeModal();
+      } else {
+        input1.classList.add('wrong');
+        input1.classList.remove('correct');
+        isCorrect1 = false;
+        showErrorModal();
+      }
+      locate();
+    }
+
+    function func2() {
+      const val = input2.value.trim();
+      if (val === '21') {
+        input2.classList.add('correct');
+        input2.classList.remove('wrong');
+        isCorrect2 = true;
+        closeModal();
+      } else {
+        input2.classList.add('wrong');
+        input2.classList.remove('correct');
+        isCorrect2 = false;
+        showErrorModal();
+      }
+      locate();
+    }
+
+    function func3() {
+      const val = input3.value.trim();
+      if (val === '3') {
+        input3.classList.add('correct');
+        input3.classList.remove('wrong');
+        isCorrect3 = true;
+        closeModal();
+      } else {
+        input3.classList.add('wrong');
+        input3.classList.remove('correct');
+        isCorrect3 = false;
+        showErrorModal();
+      }
+      locate();
+    }
+
+    function func4() {
+      const val = input4.value.trim();
+      if (val === '66') {
+        input4.classList.add('correct');
+        input4.classList.remove('wrong');
+        isCorrect4 = true;
+        closeModal();
+      } else {
+        input4.classList.add('wrong');
+        input4.classList.remove('correct');
+        isCorrect4 = false;
+        showErrorModal();
+      }
+      locate();
+    }
+
+    function func5() {
+      const val = input5.value.trim();
+      if (val === '4') {
+        input5.classList.add('correct');
+        input5.classList.remove('wrong');
+        isCorrect5 = true;
+        closeModal();
+      } else {
+        input5.classList.add('wrong');
+        input5.classList.remove('correct');
+        isCorrect5 = false;
+        showErrorModal();
+      }
+      locate();
+    }
+
+    </script>
+</body>
+</html>

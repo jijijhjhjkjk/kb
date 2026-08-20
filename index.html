@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>happy birthday</title>
+    <link href="reset.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="lil"></div>
+    <div class="modal-overlay" id="errorModal">
+        <div class="modal-window">
+            <img src="IMG_20260819_151338_612.jpg" alt="Ошибка" class="modal-image">
+            <button class="close-modal" onclick="closeModal()">Закрыть</button>
+        </div>
+    </div>
+    <div class="mainWrap">
+        <div class="prim">
+            <div class="p">
+                <div class="pwr">
+                    <p>(3^3+√(169))*2-5^2 = ? <!--55--></p>
+                    <input type="text" placeholder=' ответ сюда' id="input1">
+                    <button onclick="func1()">проверить</button>
+                </div>
+            </div>
+            <div class="p">
+                <div class="pwr">
+                    <p>6!-√(1024)/log_2(256)+3^4-√(196) = ? <!--153--></p>
+                    <input type="text" placeholder=' ответ сюда' id="input2">
+                    <button onclick="func2()">проверить</button>
+                </div>
+            </div>
+            <div class="p">
+                <div class="pwr">
+                    <p>((((25⋅4)+17)⋅2)−33)+(((12⋅3)+5)⋅4)−((9⋅2)+7)+((11⋅5)−12)−((6⋅3)+4)+((8⋅2)+9)−((7⋅4)−5)+((3⋅6)+2)−((5⋅2)+1) = ? <!--813--></p>
+                    <input type="text" placeholder=' ответ сюда' id="input3">
+                    <button onclick="func3()">проверить</button>
+                </div>
+            </div>  
+            <button id="nextBtn" class="nextBtn notvisible" onclick="window.location.href='book.html'">&rarr;</button>      
+        </div>
+    </div>
+
+    <script>
+        'use strict'
+        
+        const input1 = document.getElementById('input1');
+    const input2 = document.getElementById('input2');
+    const input3 = document.getElementById('input3');
+    const nextBtn = document.getElementById('nextBtn');
+    const errorModal = document.getElementById('errorModal');
+
+    // Флаги правильности каждого поля (без массивов)
+    let isCorrect1 = false;
+    let isCorrect2 = false;
+    let isCorrect3 = false;
+
+    function showErrorModal() {
+      errorModal.style.display = 'flex';
+    }
+
+    function closeModal() {
+      errorModal.style.display = 'none';
+    }
+
+    // Обновляем видимость кнопки «Далее»
+    
+function updateNextButton() {
+  if (isCorrect1 && isCorrect2 && isCorrect3) {
+    nextBtn.classList.remove('notvisible');
+    nextBtn.classList.add('visible');
+  } else {
+    nextBtn.classList.remove('visible');
+    nextBtn.classList.add('notvisible');
+  }
+}
+
+    function func1() {
+      const val = input1.value.trim();
+      if (val === '55') {
+        input1.classList.add('correct');
+        input1.classList.remove('wrong');
+        isCorrect1 = true;
+        closeModal();
+      } else {
+        input1.classList.add('wrong');
+        input1.classList.remove('correct');
+        isCorrect1 = false;
+        showErrorModal();
+      }
+      updateNextButton();
+    }
+
+    function func2() {
+      const val = input2.value.trim();
+      if (val === '153') {
+        input2.classList.add('correct');
+        input2.classList.remove('wrong');
+        isCorrect2 = true;
+        closeModal();
+      } else {
+        input2.classList.add('wrong');
+        input2.classList.remove('correct');
+        isCorrect2 = false;
+        showErrorModal();
+      }
+      updateNextButton();
+    }
+
+    function func3() {
+      const val = input3.value.trim();
+      if (val === '813') {
+        input3.classList.add('correct');
+        input3.classList.remove('wrong');
+        isCorrect3 = true;
+        closeModal();
+      } else {
+        input3.classList.add('wrong');
+        input3.classList.remove('correct');
+        isCorrect3 = false;
+        showErrorModal();
+      }
+      updateNextButton();
+    }
+    </script>
+</body>
+</html>
